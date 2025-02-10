@@ -5,6 +5,7 @@ using ConversationalFriends.Common.Models;
 using ConversationalFriends.Common.Services;
 using Microsoft.AspNetCore.Mvc;
 using OpenAI.Chat;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,15 +25,33 @@ builder.Services.AddScoped<ConversationRoom>();
 builder.Services.AddScoped<PodcastService>();
 builder.Services.AddScoped<IAudioService, AudioService>();
 
+builder.Services.AddCors(o =>
+{
+    o.AddPolicy(
+        name: "CorsPolicy",
+        policy => 
+            policy
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+    );
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference(options =>
+    {
+        options.WithDefaultHttpClient(ScalarTarget.JavaScript, ScalarClient.Fetch);
+    });
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
+
+app.UseCors("CorsPolicy");
 
 app.MapPost("/", async (
     HttpContext context,
