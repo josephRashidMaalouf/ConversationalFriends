@@ -43,6 +43,9 @@ app.MapPost("/", async (
 {
     var mira = Mira.Create(client, podcastRequest.Topic, podcastRequest.Language);
     var pierre = Pierre.Create(client, podcastRequest.Topic, podcastRequest.Language);
+    
+    pierre.SetSystemMessage("The name of your co host is Mira");
+    mira.SetSystemMessage("The name of your co host is Pierre");
 
     await podcastService.AddPodcastSpeaker(mira);
     await podcastService.AddPodcastSpeaker(pierre);
