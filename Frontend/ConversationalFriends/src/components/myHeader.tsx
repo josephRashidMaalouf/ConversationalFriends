@@ -32,7 +32,7 @@ const MyHeader = () => {
         {/* Left Avatar - hidden on small screens */}
         <div
           className="d-none d-sm-block"
-          style={{ width: "150px", height: "150px" }}
+          style={{ width: "150px", height: "150px", opacity: 0.5 }}
         >
           <img
             src="mira-avatar.webp"
@@ -48,7 +48,7 @@ const MyHeader = () => {
         {/* Right Avatar - only visible on desktop */}
         <div
           className="d-none d-sm-block"
-          style={{ width: "150px", height: "150px" }}
+          style={{ width: "150px", height: "150px", opacity: 0.5 }}
         >
           <img
             src="pierre-avatar.webp"
