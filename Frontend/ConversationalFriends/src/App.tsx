@@ -2,7 +2,9 @@ import { useState } from "react";
 import MyInput from "./components/myInput.tsx";
 import MyButton from "./components/myButton.tsx";
 import MyText from "./components/myText.tsx";
-import MyHeader from "./components/myHeader.tsx";
+import MyCard from "./components/myCard.tsx";
+import MyAvatar from "./components/myAvatar.tsx";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 function App() {
   const [topic, setTopic] = useState<string>("");
@@ -21,7 +23,7 @@ function App() {
         body: JSON.stringify({
           topic: topic,
           language: "svenska",
-          length: 5,
+          length: 6,
         }),
       });
 
@@ -41,36 +43,51 @@ function App() {
 
   return (
     <div className="d-flex flex-column justify-content-center align-items-center vh-100 w-100">
-      <MyHeader />
-      <MyText>
-        ConversationalFriends is an AI-powered podcast generator. Just type in
-        the topic you would like to listen to, along with the language you would
-        like to listen in, and your favourite AI-podcast hosts Mira and Pierre
-        will create a podcast episode tailored just for you!
-      </MyText>
-      <MyInput
-        value={topic}
-        placeholder="Enter a topic..."
-        disabled={loading}
-        type="text"
-        onChange={(e) => setTopic(e.target.value)}
-      />
-      <MyInput
-        value={language}
-        placeholder="In which language?"
-        disabled={loading}
-        type="text"
-        onChange={(e) => setLanguage(e.target.value)}
-      />
-      <MyButton
-        className="btn-secondary"
-        onClick={generatePodcast}
-        disabled={loading}
-      >
-        {loading ? "Please wait" : "Generate podcast"}
-      </MyButton>
+      <MyCard>
+        <MyText header="Conversational Friends"></MyText>
+        <div className="container mt-3 mb-5">
+          <div className="d-flex justify-content-evenly">
+            <MyAvatar
+              src="mira-avatar.webp"
+              alt="Mira"
+              size={80}
+              avatarName="Mira"
+            />
+            <MyAvatar
+              src="pierre-avatar.webp"
+              alt="Pierre"
+              size={80}
+              avatarName="Pierre"
+            />
+          </div>
+        </div>
+        <MyInput
+          value={topic}
+          placeholder="Enter a topic..."
+          disabled={loading}
+          type="text"
+          onChange={(e) => setTopic(e.target.value)}
+        />
+        <MyInput
+          value={language}
+          placeholder="In which language?"
+          disabled={loading}
+          type="text"
+          onChange={(e) => setLanguage(e.target.value)}
+        />
+        <MyButton
+          className="btn-brown"
+          onClick={generatePodcast}
+          disabled={loading}
+        >
+          <i className="bi bi-mic-fill"></i>
+          {loading ? "Please wait" : "Generate podcast"}
+        </MyButton>
 
-      {audioSrc && <audio controls src={audioSrc} />}
+        <div className="mt-3 mb-3">
+          {audioSrc && <audio controls src={audioSrc} />}
+        </div>
+      </MyCard>
     </div>
   );
 }
