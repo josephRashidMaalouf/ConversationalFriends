@@ -1,0 +1,38 @@
+name: ConversationalFriends.Api Docker Image CI
+
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - "Backend/**"
+  pull_request:
+    branches:
+      - "main"
+    paths:
+      - "Backend/**"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the repository
+      - uses: actions/checkout@v4
+
+      # Log in to Docker Hub
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      # Build the Docker image
+      - name: Build the Docker image
+        run: |
+          docker build ./Backend --file ./Backend/Dockerfile --tag josephrashidmaalouf/conversational-friends-api:${{ github.run_id }} --tag josephrashidmaalouf/conversational-friends-api:latest
+
+      # Push both the latest and run-id tagged images
+      - name: Push Docker images
+        run: |
+          docker push josephrashidmaalouf/auth-service:latest
+          docker push josephrashidmaalouf/auth-service:${{ github.run_id }}
