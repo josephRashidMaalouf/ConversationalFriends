@@ -22,8 +22,8 @@ function App() {
         },
         body: JSON.stringify({
           topic: topic,
-          language: "svenska",
-          length: 6,
+          language: { language },
+          length: 4,
         }),
       });
 
