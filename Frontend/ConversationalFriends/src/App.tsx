@@ -15,7 +15,7 @@ function App() {
   const generatePodcast = async () => {
     setLoading(true); // Disable button while fetching
     try {
-      const response = await fetch("http://conversational-friends-api:5000/", {
+      const response = await fetch("http://localhost:5000/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
