@@ -11,7 +11,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi();
 
-
 var openAiKey = builder.Configuration["OpenAiKey"] ?? "";
 
 builder.Services.AddHttpClient("OpenAi", options => { options.BaseAddress = new Uri("https://api.openai.com"); })
