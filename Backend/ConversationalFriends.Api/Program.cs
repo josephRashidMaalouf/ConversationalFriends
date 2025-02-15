@@ -29,7 +29,7 @@ builder.Services.AddCors(o =>
 {
     o.AddPolicy(
         name: "CorsPolicy",
-        policy => 
+        policy =>
             policy
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
@@ -49,20 +49,20 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-// app.UseHttpsRedirection();
+app.UseHttpsRedirection();
 
 app.UseCors("CorsPolicy");
 
 app.MapPost("/", async (
     HttpContext context,
-    [FromServices]ChatClient client, 
-    [FromServices]PodcastService podcastService, 
-    [FromServices]IAudioService audioService,
-    [FromBody]GetPodcastRequest podcastRequest) =>
+    [FromServices] ChatClient client,
+    [FromServices] PodcastService podcastService,
+    [FromServices] IAudioService audioService,
+    [FromBody] GetPodcastRequest podcastRequest) =>
 {
     var mira = Mira.Create(client, podcastRequest.Topic, podcastRequest.Language);
     var pierre = Pierre.Create(client, podcastRequest.Topic, podcastRequest.Language);
-    
+
     pierre.SetSystemMessage("The name of your co host is Mira");
     mira.SetSystemMessage("The name of your co host is Pierre");
 
@@ -74,14 +74,14 @@ app.MapPost("/", async (
     var conversation = messages.Select(x =>
         new ConversationLine(
             x.ConversationalFriend.Name,
-            x.ConversationalFriend.Voice.ToString(), 
+            x.ConversationalFriend.Voice.ToString(),
             x.Content[0].Text))
         .ToList();
 
     var mp3Path = await audioService.GetSpeechAsync(conversation);
-    
+
     var uniqueFolder = Path.GetDirectoryName(mp3Path);
-    
+
     var mergedStream = new FileStream(mp3Path, FileMode.Open, FileAccess.Read, FileShare.Read);
 
     context.Response.OnCompleted(() =>
@@ -99,7 +99,7 @@ app.MapPost("/", async (
         }
         return Task.CompletedTask;
     });
-    
+
     return Results.File(mergedStream, "audio/mpeg", "merged.mp3");
 });
 
