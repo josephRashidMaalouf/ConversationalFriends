@@ -1,0 +1,16 @@
+services:
+  conversational-friends-api:
+    image: josephrashidmaalouf/conversational-friends-api:latest
+    container_name: conversational-friends-api
+    ports:
+      - "5000:5000"
+    environment:
+      OpenAiKey: "your-openai-key"
+    pull_policy: always
+
+  conversational-friends-frondend:
+    image: josephrashidmaalouf/conversational-friends-frondend:latest
+    container_name: conversational-friends-frondend
+    ports:
+      - "3000:80"
+    pull_policy: always
