@@ -1,9 +1,7 @@
-﻿using System.Net.Http.Headers;
-using System.Text;
+﻿using System.Text;
 using System.Text.Json;
 using ConversationalFriends.Common.Interfaces;
 using ConversationalFriends.Common.Models;
-using NAudio.Wave;
 
 namespace ConversationalFriends.Common.Services;
 
@@ -69,19 +67,18 @@ public class AudioService : IAudioService
             File.Delete(outputFile);
         }
 
-
-        using (var writer = new FileStream(outputFile, FileMode.Create))
+        using (var outputStream = File.Create(outputFile))
         {
             foreach (var file in mp3Files)
             {
-                using (var reader = new Mp3FileReader(file))
+                using (var fileStream = File.OpenRead(file))
                 {
-                    Mp3Frame frame;
-                    while ((frame = reader.ReadNextFrame()) != null)
-                    {
-                        writer.Write(frame.RawData, 0, frame.RawData.Length);
-                    }
+                    var tagFile = TagLib.File.Create(file);
+                    fileStream.Position = tagFile.InvariantStartPosition; // Skip metadata
+                    fileStream.CopyTo(outputStream);
                 }
+
+                File.Delete(file); // Cleanup
             }
         }
     }
