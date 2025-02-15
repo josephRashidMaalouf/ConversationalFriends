@@ -8,9 +8,9 @@ services:
       OpenAiKey: "your-openai-key"
     pull_policy: always
 
-  conversational-friends-frondend:
-    image: josephrashidmaalouf/conversational-friends-frondend:latest
-    container_name: conversational-friends-frondend
+  conversational-friends-frontend:
+    image: josephrashidmaalouf/conversational-friends-frontend:latest
+    container_name: conversational-friends-frontend
     ports:
       - "3000:80"
     pull_policy: always
