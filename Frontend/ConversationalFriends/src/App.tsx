@@ -13,7 +13,7 @@ function App() {
   const [loading, setLoading] = useState<boolean>(false);
 
   const generatePodcast = async () => {
-    setLoading(true); // Disable button while fetching
+    setLoading(true);
     try {
       const response = await fetch("http://conversational-friends-api:5000/", {
         method: "POST",
