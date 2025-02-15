@@ -34,5 +34,5 @@ jobs:
       # Push both the latest and run-id tagged images
       - name: Push Docker images
         run: |
-          docker push josephrashidmaalouf/auth-service:latest
-          docker push josephrashidmaalouf/auth-service:${{ github.run_id }}
+          docker push conversational-friends-api:latest
+          docker push conversational-friends-api:${{ github.run_id }}
