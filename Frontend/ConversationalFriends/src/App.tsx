@@ -12,7 +12,7 @@ function App() {
   const [audioSrc, setAudioSrc] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/";
+  const API_URL = window._env_?.API_URL || "http://localhost:5000";
 
   const generatePodcast = async () => {
     setLoading(true); // Disable button while fetching
