@@ -12,9 +12,6 @@ async function getConfig() {
   return text;
 }
 
-const API_URL = (await getConfig()) || "http://localhost:5000";
-console.log(API_URL);
-
 function App() {
   const [topic, setTopic] = useState<string>("");
   const [language, setLanguage] = useState<string>("English");
@@ -22,6 +19,12 @@ function App() {
   const [loading, setLoading] = useState<boolean>(false);
 
   // const API_URL = window._env_?.API_URL || "http://localhost:5000";
+  let API_URL = "http://localhost:5000";
+
+  getConfig().then((c) => {
+    API_URL = c || API_URL;
+    console.log("API_URL", API_URL);
+  });
 
   const generatePodcast = async () => {
     setLoading(true); // Disable button while fetching
