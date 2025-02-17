@@ -6,13 +6,22 @@ import MyCard from "./components/myCard.tsx";
 import MyAvatar from "./components/myAvatar.tsx";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
+async function getConfig() {
+  const response = await fetch("/config.js");
+  const text = await response.text();
+  return text;
+}
+
+const API_URL = (await getConfig()) || "http://localhost:5000";
+console.log(API_URL);
+
 function App() {
   const [topic, setTopic] = useState<string>("");
   const [language, setLanguage] = useState<string>("English");
   const [audioSrc, setAudioSrc] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const API_URL = window._env_?.API_URL || "http://localhost:5000";
+  // const API_URL = window._env_?.API_URL || "http://localhost:5000";
 
   const generatePodcast = async () => {
     setLoading(true); // Disable button while fetching
