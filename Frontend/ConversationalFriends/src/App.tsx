@@ -17,10 +17,11 @@ function App() {
   const [language, setLanguage] = useState<string>("English");
   const [audioSrc, setAudioSrc] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
-  const [apiUrl, setApiUrl] = useState<string>("http://localhost:5000");
-
+  const [apiUrl] = useState<string>(
+    window._env_?.API_URL || "http://localhost:5000"
+  );
+  console.log(apiUrl, "apiUrl");
   // const API_URL = window._env_?.API_URL || "http://localhost:5000";
-  setApiUrl(window._env_?.API_URL || "http://localhost:5000");
 
   const generatePodcast = async () => {
     setLoading(true); // Disable button while fetching
