@@ -11,7 +11,6 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 //   const text = await response.text();
 //   return text;
 // }
-let API_URL = "http://localhost:5000";
 
 function App() {
   const [topic, setTopic] = useState<string>("");
