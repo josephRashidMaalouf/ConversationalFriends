@@ -6,30 +6,27 @@ import MyCard from "./components/myCard.tsx";
 import MyAvatar from "./components/myAvatar.tsx";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
-async function getConfig() {
-  const response = await fetch("/config.js");
-  const text = await response.text();
-  return text;
-}
+// async function getConfig() {
+//   const response = await fetch("/config.js");
+//   const text = await response.text();
+//   return text;
+// }
+let API_URL = "http://localhost:5000";
 
 function App() {
   const [topic, setTopic] = useState<string>("");
   const [language, setLanguage] = useState<string>("English");
   const [audioSrc, setAudioSrc] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
+  const [apiUrl, setApiUrl] = useState<string>("http://localhost:5000");
 
   // const API_URL = window._env_?.API_URL || "http://localhost:5000";
-  let API_URL = "http://localhost:5000";
-
-  getConfig().then((c) => {
-    API_URL = c || API_URL;
-    console.log("API_URL", API_URL);
-  });
+  setApiUrl(window._env_?.API_URL || "http://localhost:5000");
 
   const generatePodcast = async () => {
     setLoading(true); // Disable button while fetching
     try {
-      const response = await fetch(`${API_URL}`, {
+      const response = await fetch(`${apiUrl}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
