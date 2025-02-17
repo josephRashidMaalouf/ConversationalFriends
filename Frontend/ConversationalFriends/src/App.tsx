@@ -25,7 +25,7 @@ function App() {
         },
         body: JSON.stringify({
           topic: topic,
-          language: { language },
+          language: language,
           length: 4,
         }),
       });
