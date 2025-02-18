@@ -20,7 +20,7 @@ I don't know about you guys, but I am sick and tired of constantly having to loo
 * Better design for the audio player
 * Stream the generation of content as it is being created, to make the waiting feel more interactive and engaging
 
-### other
+### Other
 * Deploy the app to make it available online
 
 ## Pictures
