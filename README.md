@@ -15,3 +15,15 @@ I don't know about you guys, but I am sick and tired of constantly having to loo
 
 ## Pictures
 
+|Desktop|
+|------------------------|
+|<img src="./Media/Desktop.png" width="600"> |
+
+|Mobile|
+|------------------------|
+|<img src="./Media/Phone.jpg" width="600"> |
+
+<video width="320" height="240" controls>
+  <source src="./Media/demo-vid.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
