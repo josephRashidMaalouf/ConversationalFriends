@@ -12,6 +12,16 @@ I don't know about you guys, but I am sick and tired of constantly having to loo
 
 ## Upcoming features
 
+### Backend improvements
+* Stream the generation of the content being created
+
+### Frontend improvements
+* Make the generated length of the podcast custumizable
+* Better design for the audio player
+* Stream the generation of content as it is being created, to make the waiting feel more interactive and engaging
+
+### other
+* Deploy the app to make it available online
 
 ## Pictures
 
@@ -22,8 +32,3 @@ I don't know about you guys, but I am sick and tired of constantly having to loo
 |Mobile|
 |------------------------|
 |<img src="./Media/Phone.jpg" width="600"> |
-
-<video width="320" height="240" controls>
-  <source src="./Media/demo-vid.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
