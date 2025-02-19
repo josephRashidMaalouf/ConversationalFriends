@@ -12,6 +12,23 @@ I don't know about you guys, but I am sick and tired of constantly having to loo
 
 ## Upcoming features
 
+### Backend improvements
+* Stream the generation of the content being created
+
+### Frontend improvements
+* Make the generated length of the podcast custumizable
+* Better design for the audio player
+* Stream the generation of content as it is being created, to make the waiting feel more interactive and engaging
+
+### Other
+* Deploy the app to make it available online
 
 ## Pictures
 
+|Desktop|
+|------------------------|
+|<img src="./Media/Desktop.png" width="600"> |
+
+|Mobile|
+|------------------------|
+|<img src="./Media/Phone.jpg" width="600"> |
