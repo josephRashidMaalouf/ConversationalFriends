@@ -1,8 +1,11 @@
 using System.Net.Http.Headers;
 using ConversationalFriends.Api.Dtos;
-using ConversationalFriends.Common.Interfaces;
-using ConversationalFriends.Common.Models;
-using ConversationalFriends.Common.Services;
+using ConversationalFriends.Domain.Interfaces;
+using ConversationalFriends.Domain.Models;
+using ConversationalFriends.Infrastructure.Clients;
+using ConversationalFriends.Infrastructure.ConversationalFriends;
+using ConversationalFriends.Infrastructure.Models;
+using ConversationalFriends.Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
 using OpenAI.Chat;
 using Scalar.AspNetCore;
@@ -22,7 +25,7 @@ builder.Services.AddHttpClient("OpenAi", options => { options.BaseAddress = new 
 builder.Services.AddScoped<ChatClient>(p => new ChatClient("gpt-4o", openAiKey));
 builder.Services.AddScoped<ConversationRoom>();
 builder.Services.AddScoped<PodcastService>();
-builder.Services.AddScoped<IAudioService, AudioService>();
+builder.Services.AddScoped<IAiVoiceClient, AiVoiceClient>();
 
 builder.Services.AddCors(o =>
 {
@@ -55,7 +58,7 @@ app.MapPost("/", async (
     HttpContext context,
     [FromServices] ChatClient client,
     [FromServices] PodcastService podcastService,
-    [FromServices] IAudioService audioService,
+    [FromServices] IAiVoiceClient audioService,
     [FromBody] GetPodcastRequest podcastRequest) =>
 {
     var mira = Mira.Create(client, podcastRequest.Topic, podcastRequest.Language);

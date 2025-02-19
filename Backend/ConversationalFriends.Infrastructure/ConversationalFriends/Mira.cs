@@ -1,7 +1,7 @@
 ﻿using ConversationalFriends.Common.Enums;
 using OpenAI.Chat;
 
-namespace ConversationalFriends.Common.Models;
+namespace ConversationalFriends.Infrastructure.ConversationalFriends;
 
 public class Mira : PodcastSpeaker
 {

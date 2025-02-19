@@ -1,6 +1,7 @@
-﻿using OpenAI.Chat;
+﻿using ConversationalFriends.Infrastructure.ConversationalFriends;
+using ConversationalFriends.Infrastructure.Models;
 
-namespace ConversationalFriends.Common.Models;
+namespace ConversationalFriends.Infrastructure.Services;
 
 public class ConversationRoom
 {
@@ -19,7 +20,7 @@ public class ConversationRoom
     /// </summary>
     /// <param name="conversationLength">For every 1 conversation length, a talk-and-respond will happen</param>
     /// <returns></returns>
-    public async Task<List<ConversationalFriendChatMessage>> StartConversationRandomOrder(int conversationLength)
+    public async Task<List<ConversationalFriendChatMessage>> GetConversationAsync(int conversationLength)
     {
         var conversation = new List<ConversationalFriendChatMessage>();
 

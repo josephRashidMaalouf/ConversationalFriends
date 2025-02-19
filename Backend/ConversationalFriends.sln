@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConversationalFriends.Appli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConversationalFriends.Api", "ConversationalFriends.Api\ConversationalFriends.Api.csproj", "{9EF63975-8B4C-4180-AB16-A35CAE6A226E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConversationalFriends.Infrastructure", "ConversationalFriends.Infrastructure\ConversationalFriends.Infrastructure.csproj", "{214BFEAF-5089-4E1C-841A-405AB6EC20EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConversationalFriends.Domain", "ConversationalFriends.Domain\ConversationalFriends.Domain.csproj", "{C314C069-4889-47CC-B601-2CCCAA33D40D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{9EF63975-8B4C-4180-AB16-A35CAE6A226E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EF63975-8B4C-4180-AB16-A35CAE6A226E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EF63975-8B4C-4180-AB16-A35CAE6A226E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{214BFEAF-5089-4E1C-841A-405AB6EC20EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{214BFEAF-5089-4E1C-841A-405AB6EC20EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{214BFEAF-5089-4E1C-841A-405AB6EC20EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{214BFEAF-5089-4E1C-841A-405AB6EC20EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C314C069-4889-47CC-B601-2CCCAA33D40D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C314C069-4889-47CC-B601-2CCCAA33D40D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C314C069-4889-47CC-B601-2CCCAA33D40D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C314C069-4889-47CC-B601-2CCCAA33D40D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

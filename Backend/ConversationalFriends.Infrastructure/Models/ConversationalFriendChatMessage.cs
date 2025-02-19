@@ -1,6 +1,8 @@
-﻿using OpenAI.Chat;
+﻿using ConversationalFriends.Domain.Models;
+using ConversationalFriends.Infrastructure.ConversationalFriends;
+using OpenAI.Chat;
 
-namespace ConversationalFriends.Common.Models;
+namespace ConversationalFriends.Infrastructure.Models;
 
 public class ConversationalFriendChatMessage : UserChatMessage
 {

@@ -1,7 +1,7 @@
-﻿using ConversationalFriends.Common.Models;
-using OpenAI.Chat;
+﻿using ConversationalFriends.Infrastructure.ConversationalFriends;
+using ConversationalFriends.Infrastructure.Models;
 
-namespace ConversationalFriends.Common.Services;
+namespace ConversationalFriends.Infrastructure.Services;
 
 public class PodcastService
 {
@@ -18,7 +18,7 @@ public class PodcastService
     /// <returns>Conversation history</returns>
     public async Task<List<ConversationalFriendChatMessage>> StartPodcast(int length)
     {
-        return await _conversationRoom.StartConversationRandomOrder(length);
+        return await _conversationRoom.GetConversationAsync(length);
     }
 
     public async Task AddPodcastSpeaker(PodcastSpeaker podcastSpeaker)

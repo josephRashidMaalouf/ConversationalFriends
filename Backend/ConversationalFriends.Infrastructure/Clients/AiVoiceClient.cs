@@ -1,15 +1,16 @@
 ﻿using System.Text;
 using System.Text.Json;
-using ConversationalFriends.Common.Interfaces;
-using ConversationalFriends.Common.Models;
+using ConversationalFriends.Domain.Interfaces;
+using ConversationalFriends.Domain.Models;
+using ConversationalFriends.Infrastructure.Models;
 
-namespace ConversationalFriends.Common.Services;
+namespace ConversationalFriends.Infrastructure.Clients;
 
-public class AudioService : IAudioService
+public class AiVoiceClient : IAiVoiceClient
 {
     private readonly HttpClient _httpClient;
 
-    public AudioService(IHttpClientFactory httpClientFactory)
+    public AiVoiceClient(IHttpClientFactory httpClientFactory)
     {
         _httpClient = httpClientFactory.CreateClient("OpenAi");
     }
@@ -82,4 +83,5 @@ public class AudioService : IAudioService
             }
         }
     }
+    
 }

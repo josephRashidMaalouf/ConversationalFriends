@@ -1,7 +1,8 @@
 ﻿using ConversationalFriends.Common.Enums;
+using ConversationalFriends.Infrastructure.ConversationalFriends;
 using OpenAI.Chat;
 
-namespace ConversationalFriends.Common.Models;
+namespace ConversationalFriends.Infrastructure.Models;
 
 public class Pierre : PodcastSpeaker
 {

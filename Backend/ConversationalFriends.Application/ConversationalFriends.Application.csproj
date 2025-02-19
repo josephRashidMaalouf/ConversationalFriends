@@ -14,4 +14,8 @@
     <PackageReference Include="TagLibSharp" Version="2.3.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ConversationalFriends.Domain\ConversationalFriends.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
