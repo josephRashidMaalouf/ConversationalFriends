@@ -16,7 +16,7 @@ I don't know about you guys, but I am sick and tired of constantly having to loo
 * Stream the generation of the content being created
 
 ### Frontend improvements
-* Make the generated length of the podcast custumizable
+* Make the generated length of the podcast customizable
 * Better design for the audio player
 * Stream the generation of content as it is being created, to make the waiting feel more interactive and engaging
 
